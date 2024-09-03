@@ -1,0 +1,58 @@
+syntax = "proto3";
+option go_package = "/pb";
+
+// Define the Product message
+message Product {
+  int32 id = 1;
+  string name = 2;
+  string description = 3;
+  double price = 4;
+}
+
+// Define the CreateProductRequest message
+message CreateProductRequest {
+  Product product = 1;
+}
+
+// Define the CreateProductResponse message
+message CreateProductResponse {
+  Product product = 1;
+}
+
+// Define the GetProductRequest message
+message GetProductRequest {
+  int32 id = 1;
+}
+
+// Define the GetProductResponse message
+message GetProductResponse {
+  Product product = 1;
+}
+
+// Define the UpdateProductRequest message
+message UpdateProductRequest {
+  Product product = 1;
+}
+
+// Define the UpdateProductResponse message
+message UpdateProductResponse {
+  Product product = 1;
+}
+
+// Define the DeleteProductRequest message
+message DeleteProductRequest {
+  int32 id = 1;
+}
+
+// Define the DeleteProductResponse message
+message DeleteProductResponse {
+  bool success = 1;
+}
+
+// Define the ProductService
+service ProductService {
+  rpc CreateProduct(CreateProductRequest) returns (CreateProductResponse);
+  rpc GetProduct(GetProductRequest) returns (GetProductResponse);
+  rpc UpdateProduct(UpdateProductRequest) returns (UpdateProductResponse);
+  rpc DeleteProduct(DeleteProductRequest) returns (DeleteProductResponse);
+}
